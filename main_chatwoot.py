@@ -146,14 +146,16 @@ async def chatwoot_webhook(request: Request):
     """
     data = await request.json()
     
-    # Extraer información del webhook
+    # Extraer información del webhook.
+    # Chatwoot puede enviar campos como null explícito (ej. "sender": null en
+    # mensajes de actividad), por eso se usa `or {}` en lugar del default de .get()
     event = data.get('event')
     message_type = data.get('message_type')
-    conversation = data.get('conversation', {})
-    labels = conversation.get('labels', [])
+    conversation = data.get('conversation') or {}
+    labels = conversation.get('labels') or []
     message_content = data.get('content')
     conversation_id = conversation.get('id')
-    sender = data.get('sender', {})
+    sender = data.get('sender') or {}
     sender_type = sender.get('type', '')
     
     # Debug
