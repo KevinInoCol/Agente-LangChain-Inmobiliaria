@@ -1,0 +1,19 @@
+# Secretos: se inyectan en runtime (env vars / volumen), no en la imagen
+.env
+.env.*
+credentials/
+
+# No necesarios en runtime
+.git/
+.gitignore
+.claude/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+CLAUDE.md
+README.md
+Dockerfile
+.dockerignore
