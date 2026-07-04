@@ -1,0 +1,22 @@
+# Variables de entorno (secretos) — NUNCA versionar
+.env
+.env.*
+!.env.example
+
+# Credenciales (service accounts de Google, etc.)
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
